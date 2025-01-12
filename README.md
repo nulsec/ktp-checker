@@ -1,4 +1,4 @@
-# ktp-checker
+# KTP NIK Checker
 
 
 Nomor Induk Kependudukan (NIK) adalah nomor identitas penduduk yang tercantum pada KTP. Namun, NIK terkadang tak tercatat di Dukcapil nasional.
