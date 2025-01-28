@@ -11,3 +11,70 @@ NIK terdiri dari 16 digit. Kode penyusun NIK terdiri dari 2 digit awal merupakan
 NIK dicantumkan dalam setiap Dokumen Kependudukan dan dijadikan dasar penerbitan KTP, paspor, surat izin mengemudi, nomor pokok wajib pajak, polis asuransi, sertifikat hak atas tanah, dan penerbitan dokumen identitas lainnya.
 
 Menteri Dalam Negeri memastikan NIK ini siap pada 2011 
+
+
+
+For Validate KTP Number With Name 
+````
+import http.client
+
+conn = http.client.HTTPSConnection("nik-checker1.p.rapidapi.com")
+
+payload = "nama=nama%20lengkap&nik=nomer%20ktp"
+
+headers = {
+    'x-rapidapi-key': "key",
+    'x-rapidapi-host': "nik-checker1.p.rapidapi.com",
+    'Content-Type': "application/x-www-form-urlencoded"
+}
+
+conn.request("POST", "/valid", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+````
+
+Surabaya Extract Data KTP
+
+````
+import http.client
+
+conn = http.client.HTTPSConnection("nik-checker1.p.rapidapi.com")
+
+payload = "nik=Nik%20Number"
+
+headers = {
+    'x-rapidapi-key': "key",
+    'x-rapidapi-host': "nik-checker1.p.rapidapi.com",
+    'Content-Type': "application/x-www-form-urlencoded"
+}
+
+conn.request("POST", "/sby", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+````
+
+For Extrac Data KTP Indonesia
+
+````
+import http.client
+
+conn = http.client.HTTPSConnection("nik-checker1.p.rapidapi.com")
+
+headers = {
+    'x-rapidapi-key': "key",
+    'x-rapidapi-host': "nik-checker1.p.rapidapi.com"
+}
+
+conn.request("GET", "/ktp?no=16%20digit%20nomer%20ktp", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+````
